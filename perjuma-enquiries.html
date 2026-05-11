@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perjuma – Enquiries</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green:      #7B9E6B;
+      --green-dark: #5f8150;
+      --gold:       #F5C538;
+      --dark:       #111111;
+      --gray:       #555;
+      --light-bg:   #f2f2ef;
+      --white:      #ffffff;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--dark);
+      background: var(--light-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── NAVBAR ─────────────────────────────────────────────── */
+    nav {
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 56px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--white);
+    }
+    .logo svg { width: 30px; height: 30px; }
+    .nav-links { display: flex; gap: 44px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-btns { display: flex; align-items: center; gap: 20px; }
+    .btn-nav-workshop {
+      background: var(--gold);
+      border: 2px solid var(--dark);
+      border-radius: 50px;
+      padding: 9px 26px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-nav-enquiries {
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 50px;
+      padding: 9px 22px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* ─── PAGE BODY ──────────────────────────────────────────── */
+    .page-body {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 48px 24px 80px;
+      background: var(--light-bg);
+    }
+
+    /* ─── FORM CARD ──────────────────────────────────────────── */
+    .form-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 64px 56px 72px;
+      width: 100%;
+      max-width: 960px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    }
+
+    .version-badge {
+      display: block;
+      margin: 0 auto 32px;
+      width: fit-content;
+      background: #ebebeb;
+      color: #555;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+    }
+
+    .form-heading {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 52px;
+      color: var(--dark);
+    }
+
+    /* ─── FIELDS ─────────────────────────────────────────────── */
+    .field {
+      width: 100%;
+      margin-bottom: 18px;
+    }
+    .field input {
+      width: 100%;
+      padding: 18px 20px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.97rem;
+      color: var(--dark);
+      background: var(--white);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .field input::placeholder { color: #aaa; }
+    .field input:focus { border-color: var(--green); }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 18px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background .2s;
+      letter-spacing: 0.3px;
+    }
+    .btn-submit:hover { background: var(--green-dark); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--white);
+      border-top: 1px solid #e8e8e8;
+      padding: 64px 80px 48px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.5fr;
+      gap: 40px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--dark);
+    }
+    .footer-logo svg { width: 28px; height: 28px; }
+    .footer-col h4 { font-weight: 700; font-size: 0.95rem; margin-bottom: 14px; }
+    .footer-col hr { border: none; border-top: 1px solid #ddd; margin-bottom: 22px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .footer-col ul li a {
+      text-decoration: none; color: #333; font-size: 0.93rem; transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--green); }
+    .footer-col ul li a.underline-link {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: var(--green);
+    }
+    .contact-item { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 18px; }
+    .ci-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .ci-icon.light { background: #f4f4f4; border: 1px solid #ddd; }
+    .ci-icon.dark  { background: var(--dark); }
+    .ci-icon svg { width: 16px; height: 16px; }
+    .ci-icon.light svg { stroke: var(--dark); fill: none; stroke-width: 2; }
+    .ci-icon.dark  svg { stroke: white; fill: none; stroke-width: 2; }
+    .ci-info strong { display: block; font-size: 0.92rem; font-weight: 600; }
+    .ci-info span   { display: block; color: #777; font-size: 0.83rem; margin-top: 1px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav>
+  <a class="logo" href="perjuma.html">
+    <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="11" height="28" rx="2" stroke="white" stroke-width="1.8"/>
+      <text x="3.5" y="20" font-family="sans-serif" font-weight="900" font-size="10" fill="white">JP</text>
+      <line x1="14" y1="8" x2="29" y2="8" stroke="#F5C538" stroke-width="2" stroke-linecap="round"/>
+      <line x1="14" y1="15" x2="25" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    Perjuma AgTech  
+  </a>
+  <ul class="nav-links">
+    <li><a href="perjuma-about.html">Company &#9662;</a></li>
+    <li><a href="perjuma-services.html">Services</a></li>
+    <li><a href="perjuma-contact.html">Contact Us</a></li>
+  </ul>
+  <div class="nav-btns">
+    <button class="btn-nav-workshop" onclick="location.href='perjuma-services.html'">Services</button>
+    <button class="btn-nav-enquiries" onclick="location.href='perjuma-enquiries.html'">Enquiries</button>
+  </div>
+</nav>
+
+<!-- ═══════════════ FORM ═══════════════ -->
+<div class="page-body">
+  <div class="form-card">
+    <span class="version-badge">Version 1.0</span>
+    <h1 class="form-heading">Interested in our services?<br/>Fill the form</h1>
+
+    <div class="field">
+      <input type="text" placeholder="Name *" required/>
+    </div>
+    <div class="field">
+      <input type="email" placeholder="E-mail *" required/>
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Date of Event"/>
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Town *" required/>
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Country *" required/>
+    </div>
+    <div class="field">
+      <input type="number" placeholder="Number of People *" required/>
+    </div>
+
+    <button class="btn-submit">Submit</button>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a class="footer-logo" href="perjuma.html">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="11" height="28" rx="2" stroke="#7B9E6B" stroke-width="1.8"/>
+          <text x="3.5" y="20" font-family="sans-serif" font-weight="900" font-size="10" fill="#7B9E6B">JP</text>
+          <line x1="14" y1="8" x2="29" y2="8" stroke="#F5C538" stroke-width="2" stroke-linecap="round"/>
+          <line x1="14" y1="15" x2="25" y2="15" stroke="#7B9E6B" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Perjuma AgTech
+      </a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <hr/>
+      <ul>
+        <li><a href="perjuma.html">Home</a></li>
+        <li><a href="perjuma-about.html">About us</a></li>
+        <li><a href="perjuma-services.html">Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <hr/>
+      <ul>
+        <li><a href="#" class="underline-link">Terms of Use</a></li>
+        <li><a href="#" class="underline-link">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact us</h4>
+      <hr/>
+      <div class="contact-item">
+        <div class="ci-icon light">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.86 5.86l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="ci-info"><strong>+233 54 503 5410</strong></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon light">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="ci-info">
+          <strong>The Octagon</strong>
+          <span>Accra Central</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon dark">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="ci-info">
+          <strong>Email</strong>
+          <span>info@perjuma.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

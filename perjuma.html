@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perjuma AgTech – Smart Farming Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green:      #7B9E6B;
+      --green-dark: #5f8150;
+      --gold:       #F5C538;
+      --dark:       #111111;
+      --gray:       #555555;
+      --light-bg:   #f4f4f0;
+      --white:      #ffffff;
+      --card-shadow: 0 2px 14px rgba(0,0,0,0.07);
+    }
+
+    body { font-family: 'DM Sans', sans-serif; color: var(--dark); overflow-x: hidden; }
+
+    /* ─── NAVBAR ─────────────────────────────────────────────── */
+    nav {
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 56px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: 0 1px 0 #e8e8e8;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--dark);
+    }
+    .logo svg { width: 30px; height: 30px; }
+    .nav-links {
+      display: flex;
+      gap: 44px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-btns { display: flex; align-items: center; gap: 20px; }
+    .btn-nav-workshop {
+      background: var(--gold);
+      border: 2px solid var(--dark);
+      border-radius: 50px;
+      padding: 9px 26px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-nav-workshop:hover { background: #e8b820; }
+    .btn-nav-enquiries {
+      background: transparent;
+      border: none;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: calc(100vh - 62px);
+      min-height: 500px;
+    }
+    .hero-left {
+      background: var(--green);
+      padding: 80px 72px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-content h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .hero-content p {
+      color: rgba(255,255,255,0.87);
+      font-size: 0.97rem;
+      line-height: 1.78;
+    }
+    .hero-img-wrap {
+      overflow: hidden;
+      height: 100%;
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: #5a7a4a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+    }
+
+    /* ─── WORKSHOP SECTION ───────────────────────────────────── */
+    .workshop {
+      background: var(--light-bg);
+      padding: 90px 48px;
+      text-align: center;
+    }
+    .workshop h2 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      max-width: 680px;
+      margin: 0 auto 28px;
+      line-height: 1.22;
+    }
+    .workshop p {
+      max-width: 800px;
+      margin: 0 auto 44px;
+      color: #444;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .workshop p strong { font-weight: 700; }
+    .btn-green-pill {
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      padding: 14px 38px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-green-pill:hover { background: var(--green-dark); }
+
+    /* ─── SERVICES SECTION ───────────────────────────────────── */
+    .services {
+      background: var(--white);
+      padding: 80px 96px 72px;
+    }
+    .services-header { margin-bottom: 20px; }
+    .services-header h2 {
+      font-size: 2.9rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .green-badge {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      font-size: 2.9rem;
+      font-weight: 800;
+      padding: 2px 14px;
+      border-radius: 8px;
+      line-height: 1.25;
+    }
+    .services-intro {
+      margin: 22px 0 64px;
+      color: #444;
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 740px;
+    }
+
+    /* Carousel */
+    .carousel-outer {
+      position: relative;
+    }
+    .carousel-arrow-btn {
+      position: absolute;
+      top: 38%;
+      transform: translateY(-50%);
+      background: var(--gold);
+      border: none;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      transition: background .2s;
+    }
+    .carousel-arrow-btn:hover { background: #e8b820; }
+    .carousel-arrow-btn.left { left: -66px; }
+    .carousel-arrow-btn.right { right: -66px; }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+    .service-card { text-align: center; }
+    .svc-icon-circle {
+      width: 72px;
+      height: 72px;
+      background: #FDE98A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+    }
+    .svc-icon-circle svg { width: 32px; height: 32px; stroke: #333; fill: none; stroke-width: 1.5; }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .service-card p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      margin: 48px 0 40px;
+    }
+    .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+    }
+    .dot.active { background: var(--dark); }
+
+    .btn-explore {
+      display: block;
+      margin: 0 auto;
+      width: fit-content;
+      background: var(--gold);
+      border: 2.5px solid var(--dark);
+      border-radius: 50px;
+      padding: 13px 44px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--dark);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn-explore:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--dark);
+    }
+
+    /* ─── FEATURES SECTION ───────────────────────────────────── */
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 620px;
+      padding: 60px 80px 0;
+      background: var(--white);
+      align-items: center;
+    }
+    .features-left {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      padding-right: 40px;
+    }
+    .feature-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 22px 26px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #f0f0f0;
+    }
+    .feat-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .feat-icon svg { width: 36px; height: 36px; stroke: var(--dark); fill: none; stroke-width: 1.5; }
+    .feat-text h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .feat-text p {
+      color: var(--gray);
+      font-size: 0.87rem;
+      line-height: 1.65;
+    }
+    .features-right {
+      position: relative;
+      height: 600px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .green-blob-bg {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 88%;
+      height: 72%;
+      background: var(--green);
+      border-radius: 55% 0 0 0;
+    }
+    .features-woman-img {
+      position: relative;
+      z-index: 1;
+      height: 95%;
+      object-fit: contain;
+      object-position: bottom;
+    }
+    .feat-woman-placeholder {
+      position: relative;
+      z-index: 1;
+      height: 90%;
+      width: 75%;
+      background: rgba(0,0,0,0.08);
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--white);
+      border-top: 1px solid #e8e8e8;
+      padding: 64px 80px 48px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.5fr;
+      gap: 40px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .footer-logo svg { width: 28px; height: 28px; }
+    .footer-col h4 {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+    .footer-col hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin-bottom: 22px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .footer-col ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.93rem;
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--green); }
+    .footer-col ul li a.active-link { color: var(--green); }
+    .footer-col ul li a.underline-link {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .contact-item {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .ci-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ci-icon.light { background: #f4f4f4; border: 1px solid #ddd; }
+    .ci-icon.dark  { background: var(--dark); }
+    .ci-icon svg { width: 16px; height: 16px; }
+    .ci-icon.light svg { stroke: var(--dark); fill: none; }
+    .ci-icon.dark  svg { stroke: white; fill: none; }
+    .ci-info strong { display: block; font-size: 0.92rem; font-weight: 600; }
+    .ci-info span   { display: block; color: #777; font-size: 0.83rem; margin-top: 1px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav>
+  <a class="logo" href="perjuma.html">
+    <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="11" height="28" rx="2" stroke="#7B9E6B" stroke-width="1.8"/>
+      <text x="3.5" y="20" font-family="sans-serif" font-weight="900" font-size="10" fill="#7B9E6B">JP</text>
+      <line x1="14" y1="8" x2="29" y2="8" stroke="#F5C538" stroke-width="2" stroke-linecap="round"/>
+      <line x1="14" y1="15" x2="25" y2="15" stroke="#7B9E6B" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    Perjuma AgTech
+  </a>
+  <ul class="nav-links">
+    <li><a href="perjuma-about.html">Company &#9662;</a></li>
+    <li><a href="perjuma-services.html">Services</a></li>
+    <li><a href="perjuma-contact.html">Contact Us</a></li>
+  </ul>
+  <div class="nav-btns">
+    <button class="btn-nav-workshop" onclick="location.href='perjuma-services.html'">Services</button>
+    <button class="btn-nav-enquiries" onclick="location.href='perjuma-enquiries.html'">Enquiries</button>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-content">
+      <h1>Bringing the Future of Farming to the Field</h1>
+      <p>Empowering Agriculture through Intelligent Technology. At Perjuma AgTech, we bridge the gap between traditional farming and modern innovation. We provide advanced, easy-to-use technological tools that help farmers overcome daily challenges, improve crop health, and increase their harvests. By turning complex data into simple, actionable advice, we ensure that the future of agriculture is productive, sustainable, and accessible to everyone.</p>
+    </div>
+  </div>
+  <div class="hero-img-wrap">
+    <img
+      src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=900&q=85"
+      alt="Smart farming technology"
+      onerror="this.parentElement.innerHTML='<div class=hero-img-placeholder>[ AgTech Image ]</div>'"
+    />
+  </div>
+</section>
+
+<!-- ═══════════════ WORKSHOP ═══════════════ -->
+<section class="workshop">
+  <h2>Smart Solutions for Modern Agriculture</h2>
+  <p>At <strong>Perjuma AgTech</strong>, we specialize in high-tech agricultural services that take the guesswork out of farming. Our approach combines satellite monitoring, ground sensors, and artificial intelligence to give a complete picture of farm health. Whether it is detecting a plant disease before it spreads or managing water more efficiently, our solutions are designed to help farmers make better decisions and achieve better results.</p>
+  <button class="btn-green-pill" onclick="location.href='perjuma-services.html'">Our Services</button>
+</section>
+
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section class="services">
+  <div class="services-header">
+    <h2>Expect services designed to solve your</h2>
+    <span class="green-badge">crucial problem</span>
+  </div>
+  <p class="services-intro">Whether you're looking to streamline operations, implement cutting-edge solutions, or strategize for future growth, Perjuma is your trusted partner every step of the way.</p>
+
+  <div class="carousel-outer">
+    <button class="carousel-arrow-btn left" onclick="prevSlide()">&#8592;</button>
+    <button class="carousel-arrow-btn right" onclick="nextSlide()">&#8594;</button>
+
+    <div class="service-cards" id="serviceCards">
+      <!-- Card 1 -->
+      <div class="service-card">
+        <div class="svc-icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><circle cx="12" cy="10" r="1.5" stroke-width="1.5"/></svg>
+        </div>
+        <h3>Business Operations Consultancy</h3>
+        <p>Unlock your business's full potential with our Business Strategy Consultancy services. We help you define clear, actionable strategies that align with your vision and goals, driving sustainable growth and competitive advantage. Our expert consultants provide insights and guidance to navigate complex business landscapes, ensuring your organization is always a step ahead.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="service-card">
+        <div class="svc-icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><circle cx="12" cy="10" r="1.5" stroke-width="1.5"/></svg>
+        </div>
+        <h3>Project and Program Management</h3>
+        <p>Achieve excellence in execution with our Project and Program Management services. From planning and coordination to execution and evaluation, we ensure your projects and programs are delivered on time, within budget, and to the highest standards. Our experienced team provides comprehensive support, driving success and minimizing risks throughout the project lifecycle.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="service-card">
+        <div class="svc-icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><circle cx="12" cy="10" r="1.5" stroke-width="1.5"/></svg>
+        </div>
+        <h3>Management & Outsourcing</h3>
+        <p>Streamline your operations and reduce costs with our Outsourcing services. We offer flexible and efficient outsourcing solutions tailored to your business needs, allowing you to focus on your core competencies. From administrative tasks to specialized functions, our outsourcing services help you achieve higher productivity, scalability, and overall business efficiency.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-dots">
+    <div class="dot active" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+  </div>
+  <button class="btn-explore" onclick="location.href='perjuma-services.html'">Explore More</button>
+</section>
+
+<!-- ═══════════════ FEATURES ═══════════════ -->
+<section class="features">
+  <div class="features-left">
+    <!-- Card 1 -->
+    <div class="feature-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <div class="feat-text">
+        <h3>Established business</h3>
+        <p>Trusted expertise from years of industry experience. We deliver reliable solutions that meet your business needs.</p>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="feature-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+      </div>
+      <div class="feat-text">
+        <h3>24/7 support</h3>
+        <p>Get round-the-clock assistance whenever you need it. Our dedicated team is always here to help.</p>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="feature-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><rect x="3" y="5" width="14" height="14" rx="2"/><polyline points="3 10 3 19 17 19"/></svg>
+      </div>
+      <div class="feat-text">
+        <h3>100% Guaranteed</h3>
+        <p>Your satisfaction is our priority. We stand by our services with a 100% guarantee.</p>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="feature-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
+      <div class="feat-text">
+        <h3>Safety and Compliance</h3>
+        <p>Committed to maintaining the highest safety and compliance standards, ensuring your peace of mind.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-right">
+    <div class="green-blob-bg"></div>
+    <img
+      class="features-woman-img"
+      src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&q=85"
+      alt="Smart farming in the field"
+      onerror="this.outerHTML='<div class=feat-woman-placeholder>[ Image ]</div>'"
+    />
+  </div>
+</section>
+
+<!-- Green spacer under features -->
+<div style="background: var(--green); height: 80px;"></div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-grid">
+    <!-- Col 1: Logo -->
+    <div>
+      <a class="footer-logo" href="perjuma.html">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="11" height="28" rx="2" stroke="#7B9E6B" stroke-width="1.8"/>
+          <text x="3.5" y="20" font-family="sans-serif" font-weight="900" font-size="10" fill="#7B9E6B">JP</text>
+          <line x1="14" y1="8" x2="29" y2="8" stroke="#F5C538" stroke-width="2" stroke-linecap="round"/>
+          <line x1="14" y1="15" x2="25" y2="15" stroke="#7B9E6B" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Perjuma
+      </a>
+    </div>
+
+    <!-- Col 2: Company -->
+    <div class="footer-col">
+      <h4>Company</h4>
+      <hr/>
+      <ul>
+        <li><a href="perjuma.html" class="active-link">Home</a></li>
+        <li><a href="perjuma-about.html">About us</a></li>
+        <li><a href="perjuma-services.html">Services</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 3: Legal -->
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <hr/>
+      <ul>
+        <li><a href="#" class="underline-link">Terms of Use</a></li>
+        <li><a href="#" class="underline-link">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Contact -->
+    <div class="footer-col">
+      <h4>Contact us</h4>
+      <hr/>
+      <div class="contact-item">
+        <div class="ci-icon light">
+          <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.86 5.86l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="ci-info">
+          <strong>+233 54 503 5410</strong>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon light">
+          <svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="ci-info">
+          <strong>The Octagon</strong>
+          <span>Accra Central</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon dark">
+          <svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="ci-info">
+          <strong>Email</strong>
+          <span>info@perjuma.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Simple carousel slide logic
+  const slides = [
+    [
+      { title: 'Business Operations Consultancy', text: "Unlock your business's full potential with our Business Strategy Consultancy services. We help you define clear, actionable strategies that align with your vision and goals, driving sustainable growth and competitive advantage. Our expert consultants provide insights and guidance to navigate complex business landscapes, ensuring your organization is always a step ahead." },
+      { title: 'Project and Program Management', text: 'Achieve excellence in execution with our Project and Program Management services. From planning and coordination to execution and evaluation, we ensure your projects and programs are delivered on time, within budget, and to the highest standards. Our experienced team provides comprehensive support, driving success and minimizing risks throughout the project lifecycle.' },
+      { title: 'Management & Outsourcing', text: 'Streamline your operations and reduce costs with our Outsourcing services. We offer flexible and efficient outsourcing solutions tailored to your business needs, allowing you to focus on your core competencies. From administrative tasks to specialized functions, our outsourcing services help you achieve higher productivity, scalability, and overall business efficiency.' }
+    ],
+    [
+      { title: 'Digital Transformation', text: 'Navigate the digital landscape with confidence. Our digital transformation services help you leverage the latest technologies to modernize your operations, enhance customer experiences, and unlock new growth opportunities in the digital era.' },
+      { title: 'Technology Advisory', text: 'Make informed technology decisions with our expert advisory services. We assess your current technology landscape, identify gaps and opportunities, and develop a roadmap that aligns technology investments with your business objectives.' },
+      { title: 'Change Management', text: 'Successfully navigate organizational change with our proven change management methodology. We help you build change-ready cultures, engage stakeholders effectively, and ensure smooth transitions that deliver lasting results.' }
+    ]
+  ];
+
+  let current = 0;
+
+  function renderSlide(idx) {
+    const cards = document.querySelectorAll('.service-card');
+    slides[idx].forEach((s, i) => {
+      cards[i].querySelector('h3').textContent = s.title;
+      cards[i].querySelector('p').textContent = s.text;
+    });
+    document.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === idx);
+    });
+  }
+
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    renderSlide(current);
+  }
+  function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    renderSlide(current);
+  }
+  function goSlide(idx) {
+    current = idx;
+    renderSlide(current);
+  }
+</script>
+</body>
+</html>
