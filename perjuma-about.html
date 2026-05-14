@@ -113,7 +113,7 @@
     }
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2px;
     }
     .stat-card {
@@ -214,6 +214,11 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
+    }
+    .pillars-grid .pillar-card:last-child:nth-child(3n+1) {
+      grid-column: 1 / 4;
+      max-width: 380px;
+      margin: 0 auto;
     }
     .pillar-card {
       background: var(--white);
@@ -333,7 +338,7 @@
     /* ─── STATS ─────────────────────────────────────────── */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin: 40px 0 48px;
     }
@@ -471,7 +476,7 @@
     <span></span><span></span><span></span>
   </button>
   <div class="mobile-nav" id="mobileMenu">
-    <a href="perjuma-about">Company</a>
+    <a href="perjuma-about">About Us</a>
     <a href="perjuma-services">FarmSight</a>
     <div class="mobile-cta-wrap">
       <a href="perjuma-contact" class="mobile-btn-primary">Get Started</a>
@@ -491,10 +496,6 @@
 <div class="stats-section">
   <div class="stats-grid">
     <div class="stat-card">
-      <span class="stat-num">5,000+</span>
-      <span class="stat-label">Farms Supported</span>
-    </div>
-    <div class="stat-card">
       <span class="stat-num">30%</span>
       <span class="stat-label">Average Yield Increase</span>
     </div>
@@ -503,8 +504,8 @@
       <span class="stat-label">Disease Detection Accuracy</span>
     </div>
     <div class="stat-card">
-      <span class="stat-num">7+</span>
-      <span class="stat-label">Years of AgTech Experience</span>
+      <span class="stat-num">2+</span>
+      <span class="stat-label">Years of AgTech</span>
     </div>
   </div>
 </div>
@@ -530,7 +531,7 @@
 <!-- ═══════════════ TECH PILLARS ═══════════════ -->
 <section class="pillars-section">
   <p class="pillars-eyebrow">Our Technology</p>
-  <h2>Four Pillars of Precision Agriculture</h2>
+  <h2>Five Pillars of Precision Agriculture</h2>
   <div class="pillars-grid">
     <div class="pillar-card">
       <div class="pillar-icon">
@@ -552,6 +553,13 @@
       </div>
       <h3>AI Disease Detection</h3>
       <p>Our deep-learning models, trained on thousands of local crop images, detect disease and pest threats with 95%+ accuracy — delivering 7–14 days of early warning.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3>Precision Agriculture</h3>
+      <p>We combine geospatial mapping, variable-rate technology, and field-specific analytics to help farmers apply the right inputs at the right place and time — maximising yield while minimising waste.</p>
     </div>
   </div>
 </section>
