@@ -75,25 +75,208 @@
       cursor: pointer;
     }
 
-    /* ─── ABOUT CONTENT ──────────────────────────────────────── */
-    .about-section {
-      background: var(--white);
-      padding: 80px 80px 120px;
-      width: 100%;
+    /* ─── ABOUT HERO ─────────────────────────────────────────── */
+    .about-hero {
+      background: var(--green);
+      padding: 96px 80px 80px;
+      text-align: center;
     }
-    .about-section h1 {
-      font-size: 2.8rem;
+    .about-hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 18px;
+    }
+    .about-hero h1 {
+      font-size: 3rem;
       font-weight: 800;
-      margin-bottom: 36px;
+      color: var(--white);
       line-height: 1.15;
+      max-width: 720px;
+      margin: 0 auto 22px;
     }
-    .about-section p {
-      font-size: 1rem;
-      line-height: 1.85;
-      color: var(--gray);
+    .about-hero p {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ─── STATS ─────────────────────────────────────────── */
+    .stats-section {
+      background: #1a2e14;
+      padding: 56px 80px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .stat-card {
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+    }
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      right: 0;
+      height: 60%;
+      width: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+    .stat-card:last-child::after { display: none; }
+    .stat-num {
+      display: block;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .stat-label {
+      display: block;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+
+    /* ─── MISSION SECTION ────────────────────────────────────── */
+    .mission-section {
+      background: var(--white);
+      padding: 80px 80px 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      border-top: 1px solid #f0f0f0;
+    }
+    .mission-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+    .mission-section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
       margin-bottom: 22px;
     }
-    .about-section p:last-child { margin-bottom: 0; }
+    .mission-section p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #444;
+      margin-bottom: 18px;
+    }
+    .mission-section p:last-child { margin-bottom: 0; }
+    .mission-img {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 420px;
+    }
+    .mission-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ─── TECH PILLARS ───────────────────────────────────────── */
+    .pillars-section {
+      background: #f4f4f0;
+      padding: 80px 80px 88px;
+    }
+    .pillars-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+    .pillars-section > h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 48px;
+      line-height: 1.2;
+      max-width: 560px;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .pillar-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px 28px;
+    }
+    .pillar-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(123,158,107,0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+    .pillar-icon svg { width: 26px; height: 26px; stroke: var(--green); fill: none; stroke-width: 1.8; }
+    .pillar-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .pillar-card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ─── ABOUT CTA ──────────────────────────────────────────── */
+    .about-cta {
+      background: var(--green);
+      padding: 72px 80px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-cta h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .about-cta p {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.97rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .btn-cta-white {
+      background: var(--white);
+      border: none;
+      border-radius: 50px;
+      padding: 14px 40px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity .2s;
+    }
+    .btn-cta-white:hover { opacity: 0.9; }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
@@ -103,7 +286,7 @@
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr 1.5fr;
+      grid-template-columns: 1fr 1fr 1fr 1.5fr;
       gap: 40px;
     }
     .footer-logo {
@@ -146,6 +329,126 @@
     .ci-icon.dark  svg { stroke: white; fill: none; stroke-width: 2; }
     .ci-info strong { display: block; font-size: 0.92rem; font-weight: 600; }
     .ci-info span   { display: block; color: #777; font-size: 0.83rem; margin-top: 1px; }
+
+    /* ─── STATS ─────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 40px 0 48px;
+    }
+    .stat-card {
+      background: var(--green);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .stat-num {
+      display: block;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+    .stat-label {
+      display: block;
+      font-size: 0.85rem;
+      opacity: 0.87;
+      line-height: 1.4;
+    }
+
+    /* ─── HAMBURGER ─────────────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 199;
+      background: var(--green);
+      padding: 16px 24px 24px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      display: block;
+    }
+    .mobile-cta-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+    .mobile-btn-primary {
+      background: var(--gold);
+      border: 2px solid var(--dark);
+      border-radius: 50px;
+      padding: 11px 20px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      color: var(--dark);
+    }
+    .mobile-btn-secondary {
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      display: block;
+      padding: 8px;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; position: relative; }
+      .nav-links, .nav-btns { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .about-hero { padding: 64px 24px 56px; }
+      .about-hero h1 { font-size: 2.1rem; }
+
+      .stats-section { padding: 0 0; }
+      .stats-grid { grid-template-columns: 1fr 1fr; border-left: none; }
+
+      .mission-section { grid-template-columns: 1fr; gap: 32px; padding: 56px 24px; }
+      .mission-section h2 { font-size: 1.7rem; }
+      .mission-img { height: 260px; }
+
+      .pillars-section { padding: 56px 24px 64px; }
+      .pillars-section > h2 { font-size: 1.7rem; margin-bottom: 32px; }
+      .pillars-grid { grid-template-columns: 1fr; gap: 20px; }
+
+      .about-cta { grid-template-columns: 1fr; gap: 28px; padding: 56px 24px; }
+      .about-cta h2 { font-size: 1.7rem; }
+
+      footer { padding: 48px 24px 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -162,29 +465,109 @@
     Perjuma AgTech
   </a>
   <ul class="nav-links">
-    <li><a href="perjuma-about.html">Company &#9662;</a></li>
-    <li><a href="perjuma-services.html">Services</a></li>
-    <li><a href="perjuma-contact.html">Contact Us</a></li>
+    <li><a href="perjuma-about.html">About Us</a></li>
+    <li><a href="perjuma-services.html">FarmSight</a></li>
   </ul>
   <div class="nav-btns">
-    <button class="btn-nav-workshop" onclick="location.href='perjuma-services.html'">Services</button>
+    <button class="btn-nav-workshop" onclick="location.href='perjuma-contact.html'">Get Started</button>
     <button class="btn-nav-enquiries" onclick="location.href='perjuma-enquiries.html'">Enquiries</button>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-nav" id="mobileMenu">
+    <a href="perjuma-about.html">Company</a>
+    <a href="perjuma-services.html">FarmSight</a>
+    <div class="mobile-cta-wrap">
+      <a href="perjuma-contact.html" class="mobile-btn-primary">Get Started</a>
+      <a href="perjuma-enquiries.html" class="mobile-btn-secondary">Enquiries</a>
+    </div>
   </div>
 </nav>
 
-<!-- ═══════════════ ABOUT CONTENT ═══════════════ -->
-<section class="about-section">
-  <h1>About Perjuma AgTech</h1>
+<!-- ═══════════════ ABOUT HERO ═══════════════ -->
+<section class="about-hero">
+  <p class="about-hero-eyebrow">Who We Are</p>
+  <h1>Pioneering the Future of Agriculture in Ghana</h1>
+  <p>We are a team of agronomists, data scientists, and engineers dedicated to making precision farming accessible to every farmer — from smallholder plots to large commercial estates.</p>
+</section>
 
-  <p>At Perjuma AgTech, we are dedicated to empowering the agricultural sector with innovative technology and data-driven guidance tailored to the unique challenges of the field.</p>
+<!-- ═══════════════ STATS ═══════════════ -->
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-num">5,000+</span>
+      <span class="stat-label">Farms Supported</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">30%</span>
+      <span class="stat-label">Average Yield Increase</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">95%</span>
+      <span class="stat-label">Disease Detection Accuracy</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">7+</span>
+      <span class="stat-label">Years of AgTech Experience</span>
+    </div>
+  </div>
+</div>
 
-  <p>Whether you are seeking to streamline farm operations through real-time soil monitoring, implement cutting-edge AI for disease detection, or develop strategies for sustainable crop growth, Perjuma AgTech is your trusted partner in precision agriculture.</p>
+<!-- ═══════════════ MISSION ═══════════════ -->
+<section class="mission-section">
+  <div>
+    <p class="mission-eyebrow">Our Mission</p>
+    <h2>Bridging Tradition and Technology on the Farm</h2>
+    <p>At Perjuma AgTech, we are dedicated to empowering the agricultural sector with innovative technology and data-driven guidance tailored to the unique challenges of the field.</p>
+    <p>Whether you are seeking to streamline farm operations through real-time soil monitoring, implement cutting-edge AI for disease detection, or develop strategies for sustainable crop growth, Perjuma AgTech is your trusted partner in precision agriculture.</p>
+    <p>We believe in building strong, collaborative relationships with farmers and stakeholders, ensuring your enterprise not only meets its current production goals but is well-positioned for a high-yield, tech-forward future.</p>
+  </div>
+  <div class="mission-img">
+    <img
+      src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80"
+      alt="Farmer working with technology"
+      onerror="this.style.background='#dde8d5'"
+    />
+  </div>
+</section>
 
-  <p>Our team integrates advanced satellite intelligence, IoT sensor networks, and multispectral drone data to understand your specific land challenges and deliver customized solutions that drive measurable results.</p>
+<!-- ═══════════════ TECH PILLARS ═══════════════ -->
+<section class="pillars-section">
+  <p class="pillars-eyebrow">Our Technology</p>
+  <h2>Four Pillars of Precision Agriculture</h2>
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h3>Satellite Intelligence</h3>
+      <p>We use advanced multispectral satellite data to monitor every hectare of your farm every five days, identifying growth anomalies and stress zones before they escalate.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>IoT Soil Sensors</h3>
+      <p>In-ground sensors deliver real-time readings of soil moisture, temperature, and key nutrients so farmers know precisely when and where to irrigate or fertilize.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <h3>AI Disease Detection</h3>
+      <p>Our deep-learning models, trained on thousands of local crop images, detect disease and pest threats with 95%+ accuracy — delivering 7–14 days of early warning.</p>
+    </div>
+  </div>
+</section>
 
-  <p>We believe in building strong, collaborative relationships with farmers and stakeholders, ensuring that your agricultural enterprise not only meets its current production goals but is also well-positioned for a high-yield, tech-forward future.</p>
-
-  <p>With Perjuma AgTech, you gain a reliable ally committed to a journey of digital transformation and agricultural excellence. Make your operational decisions with confidence, knowing you have the right predictive tools and technical expertise by your side. With our proven approach, you can reduce waste, save on input costs, and focus on growing a more productive business.</p>
+<!-- ═══════════════ ABOUT CTA ═══════════════ -->
+<section class="about-cta">
+  <div>
+    <h2>Ready to transform your farm?</h2>
+    <p>Join thousands of farmers across Ghana who are already growing more, spending less, and farming smarter with Perjuma AgTech.</p>
+  </div>
+  <button class="btn-cta-white" onclick="location.href='perjuma-contact.html'">Get Started</button>
 </section>
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
@@ -208,7 +591,7 @@
       <ul>
         <li><a href="perjuma.html">Home</a></li>
         <li><a href="perjuma-about.html" class="active-link">About us</a></li>
-        <li><a href="perjuma-services.html">Services</a></li>
+        <li><a href="perjuma-services.html">FarmSight</a></li>
       </ul>
     </div>
 
@@ -216,8 +599,8 @@
       <h4>Legal</h4>
       <hr/>
       <ul>
-        <li><a href="#" class="underline-link">Terms of Use</a></li>
-        <li><a href="#" class="underline-link">Privacy Policy</a></li>
+        <li><a href="perjuma-terms.html" class="underline-link">Terms of Use</a></li>
+        <li><a href="perjuma-privacy.html" class="underline-link">Privacy Policy</a></li>
       </ul>
     </div>
 
@@ -252,5 +635,10 @@
   </div>
 </footer>
 
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
 </body>
 </html>

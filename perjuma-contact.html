@@ -182,7 +182,7 @@
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr 1.5fr;
+      grid-template-columns: 1fr 1fr 1fr 1.5fr;
       gap: 40px;
     }
     .footer-logo {
@@ -221,6 +221,84 @@
     .ci-icon.dark  svg { stroke: white; fill: none; stroke-width: 2; }
     .ci-info strong { display: block; font-size: 0.92rem; font-weight: 600; }
     .ci-info span   { display: block; color: #777; font-size: 0.83rem; margin-top: 1px; }
+
+    /* ─── HAMBURGER ─────────────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 199;
+      background: var(--green);
+      padding: 16px 24px 24px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      display: block;
+    }
+    .mobile-cta-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+    .mobile-btn-primary {
+      background: var(--gold);
+      border: 2px solid var(--dark);
+      border-radius: 50px;
+      padding: 11px 20px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      color: var(--dark);
+    }
+    .mobile-btn-secondary {
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      display: block;
+      padding: 8px;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; position: relative; }
+      .nav-links, .nav-btns { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .form-card { padding: 40px 24px 48px; }
+      .form-heading { font-size: 1.8rem; margin-bottom: 36px; }
+
+      footer { padding: 48px 24px 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -237,20 +315,29 @@
     Perjuma AgTech
   </a>
   <ul class="nav-links">
-    <li><a href="perjuma-about.html">Company &#9662;</a></li>
-    <li><a href="perjuma-services.html">Services</a></li>
-    <li><a href="perjuma-contact.html" class="active">Contact Us</a></li>
+    <li><a href="perjuma-about.html">About Us</a></li>
+    <li><a href="perjuma-services.html">FarmSight</a></li>
   </ul>
   <div class="nav-btns">
-    <button class="btn-nav-workshop" onclick="location.href='perjuma-services.html'">Services</button>
+    <button class="btn-nav-workshop" onclick="location.href='perjuma-contact.html'">Get Started</button>
     <button class="btn-nav-enquiries" onclick="location.href='perjuma-enquiries.html'">Enquiries</button>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-nav" id="mobileMenu">
+    <a href="perjuma-about.html">Company</a>
+    <a href="perjuma-services.html">FarmSight</a>
+    <div class="mobile-cta-wrap">
+      <a href="perjuma-contact.html" class="mobile-btn-primary">Get Started</a>
+      <a href="perjuma-enquiries.html" class="mobile-btn-secondary">Enquiries</a>
+    </div>
   </div>
 </nav>
 
 <!-- ═══════════════ FORM ═══════════════ -->
 <div class="page-body">
   <div class="form-card">
-    <span class="version-badge">Version 1.0</span>
     <h1 class="form-heading">Get Started. Fill the form</h1>
 
     <div class="field">
@@ -291,7 +378,7 @@
       <ul>
         <li><a href="perjuma.html">Home</a></li>
         <li><a href="perjuma-about.html">About us</a></li>
-        <li><a href="perjuma-services.html">Services</a></li>
+        <li><a href="perjuma-services.html">FarmSight</a></li>
       </ul>
     </div>
 
@@ -299,8 +386,8 @@
       <h4>Legal</h4>
       <hr/>
       <ul>
-        <li><a href="#" class="underline-link">Terms of Use</a></li>
-        <li><a href="#" class="underline-link">Privacy Policy</a></li>
+        <li><a href="perjuma-terms.html" class="underline-link">Terms of Use</a></li>
+        <li><a href="perjuma-privacy.html" class="underline-link">Privacy Policy</a></li>
       </ul>
     </div>
 
@@ -335,5 +422,10 @@
   </div>
 </footer>
 
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
 </body>
 </html>

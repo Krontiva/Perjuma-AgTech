@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Perjuma – Enquiries</title>
+  <title>Terms of Use – Perjuma AgTech</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,19 +13,11 @@
       --green-dark: #5f8150;
       --gold:       #F5C538;
       --dark:       #111111;
-      --gray:       #555;
-      --light-bg:   #f2f2ef;
+      --gray:       #444;
       --white:      #ffffff;
     }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--dark);
-      background: var(--light-bg);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    body { font-family: 'DM Sans', sans-serif; color: var(--dark); overflow-x: hidden; }
 
     /* ─── NAVBAR ─────────────────────────────────────────────── */
     nav {
@@ -82,85 +74,61 @@
       cursor: pointer;
     }
 
-    /* ─── PAGE BODY ──────────────────────────────────────────── */
-    .page-body {
-      flex: 1;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 48px 24px 80px;
-      background: var(--light-bg);
-    }
-
-    /* ─── FORM CARD ──────────────────────────────────────────── */
-    .form-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 64px 56px 72px;
-      width: 100%;
-      max-width: 960px;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-    }
-
-    .version-badge {
-      display: block;
-      margin: 0 auto 32px;
-      width: fit-content;
-      background: #ebebeb;
-      color: #555;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 6px 18px;
-      border-radius: 50px;
-    }
-
-    .form-heading {
-      text-align: center;
-      font-size: 2.4rem;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 52px;
-      color: var(--dark);
-    }
-
-    /* ─── FIELDS ─────────────────────────────────────────────── */
-    .field {
-      width: 100%;
-      margin-bottom: 18px;
-    }
-    .field input {
-      width: 100%;
-      padding: 18px 20px;
-      border: 1.5px solid #ddd;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.97rem;
-      color: var(--dark);
-      background: var(--white);
-      outline: none;
-      transition: border-color .2s;
-    }
-    .field input::placeholder { color: #aaa; }
-    .field input:focus { border-color: var(--green); }
-
-    .btn-submit {
-      width: 100%;
+    /* ─── PAGE HERO ──────────────────────────────────────────── */
+    .page-hero {
       background: var(--green);
-      color: var(--white);
-      border: none;
-      border-radius: 8px;
-      padding: 18px;
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-top: 6px;
-      transition: background .2s;
-      letter-spacing: 0.3px;
+      padding: 72px 80px 60px;
+      border-top: 1px solid rgba(255,255,255,0.12);
     }
-    .btn-submit:hover { background: var(--green-dark); }
+    .page-hero p {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 14px;
+    }
+    .page-hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .page-hero span {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+    }
+
+    /* ─── CONTENT ────────────────────────────────────────────── */
+    .policy-body {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 72px 80px 96px;
+    }
+    .policy-body h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 44px 0 14px;
+      color: var(--dark);
+    }
+    .policy-body h2:first-child { margin-top: 0; }
+    .policy-body p {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    .policy-body ul {
+      padding-left: 22px;
+      margin-bottom: 16px;
+    }
+    .policy-body ul li {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      color: #444;
+      margin-bottom: 8px;
+    }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
@@ -193,10 +161,10 @@
     }
     .footer-col ul li a:hover { color: var(--green); }
     .footer-col ul li a.underline-link {
-      text-decoration: underline;
-      text-underline-offset: 4px;
+      text-decoration: underline; text-underline-offset: 4px;
       text-decoration-color: var(--green);
     }
+    .footer-col ul li a.active-link { color: var(--green); font-weight: 600; }
     .contact-item { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 18px; }
     .ci-icon {
       width: 36px; height: 36px; border-radius: 50%;
@@ -278,8 +246,9 @@
       .nav-links, .nav-btns { display: none; }
       .nav-hamburger { display: flex; }
 
-      .form-card { padding: 40px 24px 48px; }
-      .form-heading { font-size: 1.8rem; margin-bottom: 36px; }
+      .page-hero { padding: 56px 24px 44px; }
+      .page-hero h1 { font-size: 1.9rem; }
+      .policy-body { padding: 48px 24px 72px; }
 
       footer { padding: 48px 24px 40px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -300,7 +269,7 @@
       <line x1="14" y1="8" x2="29" y2="8" stroke="#F5C538" stroke-width="2" stroke-linecap="round"/>
       <line x1="14" y1="15" x2="25" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/>
     </svg>
-    Perjuma AgTech  
+    Perjuma AgTech
   </a>
   <ul class="nav-links">
     <li><a href="perjuma-about.html">About Us</a></li>
@@ -323,32 +292,59 @@
   </div>
 </nav>
 
-<!-- ═══════════════ FORM ═══════════════ -->
-<div class="page-body">
-  <div class="form-card">
-    <h1 class="form-heading">Interested in our services?<br/>Fill the form</h1>
+<!-- ═══════════════ PAGE HERO ═══════════════ -->
+<div class="page-hero">
+  <p>Legal</p>
+  <h1>Terms of Use</h1>
+  <span>Last updated: May 2026</span>
+</div>
 
-    <div class="field">
-      <input type="text" placeholder="Name *" required/>
-    </div>
-    <div class="field">
-      <input type="email" placeholder="E-mail *" required/>
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Date of Event"/>
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Town *" required/>
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Country *" required/>
-    </div>
-    <div class="field">
-      <input type="number" placeholder="Number of People *" required/>
-    </div>
+<!-- ═══════════════ CONTENT ═══════════════ -->
+<div class="policy-body">
+  <h2>1. Acceptance of Terms</h2>
+  <p>By accessing or using the Perjuma AgTech website, FarmSight platform, or any related services (collectively, the "Services"), you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use our Services.</p>
+  <p>We reserve the right to update these Terms at any time. Continued use of the Services after any changes constitutes your acceptance of the revised Terms.</p>
 
-    <button class="btn-submit">Submit</button>
-  </div>
+  <h2>2. Use of Services</h2>
+  <p>You agree to use our Services only for lawful purposes and in a manner that does not infringe the rights of others. You must not:</p>
+  <ul>
+    <li>Use the Services in any way that violates applicable local, national, or international law or regulation.</li>
+    <li>Transmit any unsolicited or unauthorised advertising or promotional material.</li>
+    <li>Attempt to gain unauthorised access to any part of the Services or its related systems.</li>
+    <li>Reproduce, duplicate, copy, or resell any part of our Services without our express written permission.</li>
+    <li>Use automated tools to scrape, harvest, or extract data from the platform.</li>
+  </ul>
+
+  <h2>3. FarmSight Platform</h2>
+  <p>Access to the FarmSight platform is subject to a separate service agreement. The platform, including all satellite data, AI recommendations, sensor readings, and analytics outputs, is provided for informational and operational support purposes only. While we strive for accuracy, agricultural recommendations provided through FarmSight should be considered alongside your own professional judgement and local agronomic expertise.</p>
+  <p>Perjuma AgTech is not liable for any crop losses, financial losses, or other damages arising from decisions made on the basis of FarmSight data alone.</p>
+
+  <h2>4. Intellectual Property</h2>
+  <p>All content on this website and within the FarmSight platform — including text, graphics, logos, icons, images, data models, algorithms, and software — is the property of Perjuma AgTech or its content suppliers and is protected by applicable copyright and intellectual property laws.</p>
+  <p>You may not reproduce, distribute, or create derivative works from our content without prior written consent.</p>
+
+  <h2>5. Farm Data Ownership</h2>
+  <p>You retain ownership of all farm data you provide to us or that is generated through sensors and devices deployed on your land. By using our Services, you grant Perjuma AgTech a limited, non-exclusive licence to process and analyse your farm data for the purpose of delivering our Services, improving our models, and generating aggregated insights (in anonymised form only).</p>
+
+  <h2>6. Disclaimer of Warranties</h2>
+  <p>Our Services are provided on an "as is" and "as available" basis without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the Services will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+
+  <h2>7. Limitation of Liability</h2>
+  <p>To the fullest extent permitted by law, Perjuma AgTech shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, crop yield, data, or goodwill, arising from your use of the Services or inability to use the Services.</p>
+
+  <h2>8. Third-Party Links</h2>
+  <p>Our website may contain links to third-party websites. These links are provided for your convenience only. We have no control over the content of those sites and accept no responsibility for them or for any loss or damage that may arise from your use of them.</p>
+
+  <h2>9. Governing Law</h2>
+  <p>These Terms of Use shall be governed by and construed in accordance with the laws of the Republic of Ghana. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts of Ghana.</p>
+
+  <h2>10. Contact Us</h2>
+  <p>If you have questions about these Terms of Use, please contact us:</p>
+  <ul>
+    <li><strong>Email:</strong> info@perjuma.com</li>
+    <li><strong>Phone:</strong> +233 54 503 5410</li>
+    <li><strong>Address:</strong> The Octagon, Accra Central, Ghana</li>
+  </ul>
 </div>
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
@@ -380,7 +376,7 @@
       <h4>Legal</h4>
       <hr/>
       <ul>
-        <li><a href="perjuma-terms.html" class="underline-link">Terms of Use</a></li>
+        <li><a href="perjuma-terms.html" class="underline-link active-link">Terms of Use</a></li>
         <li><a href="perjuma-privacy.html" class="underline-link">Privacy Policy</a></li>
       </ul>
     </div>
