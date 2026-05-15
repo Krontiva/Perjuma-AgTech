@@ -555,9 +555,11 @@
   <!-- 3. Precision Drone Surveys — image LEFT, text RIGHT -->
   <div class="service-row">
     <div class="svc-img">
-      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px;display:block;">
-        <source src="https://videos.pexels.com/video-files/34182419/34182419-hd_1920_1080_30fps.mp4" type="video/mp4">
-      </video>
+      <img
+        src="images/drone-spray.jpg"
+        alt="Agricultural drone spraying crops over a farm field"
+        onerror="this.parentElement.innerHTML='<div class=svc-img-placeholder>Image</div>'"
+      />
     </div>
     <div class="svc-text">
       <h2>Precision Drone Surveys</h2>
