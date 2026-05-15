@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="images/Perjuma.png"/>
+  <title>Perjuma – Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green:      #7B9E6B;
+      --green-dark: #5f8150;
+      --gold:       #F5C538;
+      --dark:       #111111;
+      --gray:       #555;
+      --light-bg:   #f4f4f0;
+      --white:      #ffffff;
+    }
+
+    body { font-family: 'DM Sans', sans-serif; color: var(--dark); overflow-x: hidden; }
+
+    /* ─── NAVBAR (green bg for services page) ───────────────── */
+    nav {
+      background: #2d4a1e;
+      display: flex;
+      align-items: center;
+      padding: 16px 56px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+    .logo {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--white);
+    }
+    .logo svg { width: 30px; height: 30px; }
+    .nav-links {
+      display: flex;
+      gap: 44px;
+      list-style: none;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding-bottom: 3px;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active {
+      color: var(--white);
+      font-weight: 700;
+      border-bottom: 2px solid var(--white);
+    }
+    .nav-btns { display: flex; align-items: center; gap: 20px; flex: 1; justify-content: flex-end; }
+    .btn-nav-workshop {
+      background: var(--gold);
+      border: 2px solid var(--dark);
+      border-radius: 50px;
+      padding: 9px 26px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-nav-enquiries {
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 50px;
+      padding: 9px 22px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* ─── PRODUCT HERO ───────────────────────────────────────── */
+    .product-hero {
+      position: relative;
+      padding: 120px 80px 96px;
+      overflow: hidden;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,30,10,0.82) 0%, rgba(26,46,20,0.68) 100%);
+      z-index: 1;
+    }
+    .product-hero > *:not(.hero-video):not(.hero-overlay) {
+      position: relative;
+      z-index: 2;
+    }
+    .product-hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .product-hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.12;
+      max-width: 720px;
+      margin-bottom: 22px;
+    }
+    .product-hero p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 36px;
+    }
+    .product-hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-hero-gold {
+      background: var(--gold);
+      border: 2px solid var(--dark);
+      border-radius: 50px;
+      padding: 13px 36px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-hero-gold:hover { background: #e8b820; }
+    .btn-hero-outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 50px;
+      padding: 13px 36px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--white);
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-hero-outline:hover { background: rgba(255,255,255,0.1); }
+
+    /* ─── METRICS BAR ─────────────────────────────────────────── */
+    .metrics-bar {
+      background: var(--green);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .metric-item {
+      padding: 28px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.18);
+    }
+    .metric-item:last-child { border-right: none; }
+    .metric-num {
+      display: block;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .metric-label {
+      display: block;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.4;
+    }
+
+    /* ─── SERVICE ROWS ───────────────────────────────────────── */
+    .services-list {
+      background: var(--white);
+      padding: 20px 80px 80px;
+    }
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 60px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .service-row:last-child { border-bottom: none; }
+
+    /* Image always first in DOM; flex-direction controls visual order */
+    .service-row.img-right { }
+    .service-row.img-right .svc-img  { order: 2; }
+    .service-row.img-right .svc-text { order: 1; }
+
+    .svc-img {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 320px;
+    }
+    .svc-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    .svc-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: #e8e8e8;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 0.85rem;
+    }
+
+    .svc-text h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+    .gold-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .svc-text p {
+      color: #444;
+      font-size: 0.97rem;
+      line-height: 1.78;
+      margin-bottom: 18px;
+    }
+    .svc-text .approach-label {
+      font-weight: 700;
+      font-size: 0.97rem;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    /* ─── CTA SECTION ────────────────────────────────────────── */
+    .cta-section {
+      background: var(--light-bg);
+      padding: 72px 80px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 80px;
+      align-items: center;
+    }
+    .cta-section h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 22px;
+      line-height: 1.1;
+    }
+    .cta-section p {
+      color: #444;
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 640px;
+    }
+    .btn-get-started {
+      background: var(--white);
+      border: 2.5px solid var(--dark);
+      border-radius: 50px;
+      padding: 14px 40px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .2s, color .2s;
+    }
+    .btn-get-started:hover {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--white);
+      border-top: 1px solid #e8e8e8;
+      padding: 64px 80px 48px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1.5fr;
+      gap: 40px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--dark);
+    }
+    .footer-logo svg { width: 28px; height: 28px; }
+    .footer-col h4 { font-weight: 700; font-size: 0.95rem; margin-bottom: 14px; }
+    .footer-col hr { border: none; border-top: 1px solid #ddd; margin-bottom: 22px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .footer-col ul li a {
+      text-decoration: none; color: #333; font-size: 0.93rem; transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--green); }
+    .footer-col ul li a.underline-link {
+      text-decoration: underline; text-underline-offset: 4px;
+    }
+    .contact-item { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 18px; }
+    .ci-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .ci-icon.light { background: #f4f4f4; border: 1px solid #ddd; }
+    .ci-icon.dark  { background: var(--dark); }
+    .ci-icon svg { width: 16px; height: 16px; }
+    .ci-icon.light svg { stroke: var(--dark); fill: none; stroke-width: 2; }
+    .ci-icon.dark  svg { stroke: white; fill: none; stroke-width: 2; }
+    .ci-info strong { display: block; font-size: 0.92rem; font-weight: 600; }
+    .ci-info span   { display: block; color: #777; font-size: 0.83rem; margin-top: 1px; }
+
+    /* ─── HAMBURGER ─────────────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 199;
+      background: #2d4a1e;
+      padding: 16px 24px 24px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      display: block;
+    }
+    .mobile-cta-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+    .mobile-btn-primary {
+      background: var(--gold);
+      border: 2px solid var(--dark);
+      border-radius: 50px;
+      padding: 11px 20px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      color: var(--dark);
+    }
+    .mobile-btn-secondary {
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      display: block;
+      padding: 8px;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; position: relative; }
+      .nav-links, .nav-btns { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .product-hero { padding: 64px 24px 56px; }
+      .product-hero h1 { font-size: 2.1rem; }
+      .metrics-bar { grid-template-columns: 1fr 1fr; }
+      .metric-item { border-bottom: 1px solid rgba(255,255,255,0.18); }
+      .metric-item:nth-child(2), .metric-item:nth-child(4) { border-right: none; }
+
+      .services-list { padding: 20px 24px 60px; }
+      .service-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 40px 0;
+      }
+      .service-row.img-right .svc-img { order: 0; }
+      .service-row.img-right .svc-text { order: 0; }
+      .svc-img { height: 220px; }
+      .svc-text h2 { font-size: 1.4rem; }
+
+      .cta-section { grid-template-columns: 1fr; gap: 28px; padding: 56px 24px; }
+      .cta-section h2 { font-size: 2rem; }
+
+      footer { padding: 48px 24px 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav>
+  <a class="logo" href="perjuma">
+    <img src="images/Perjuma.png" alt="Perjuma logo" style="width:32px;height:32px;object-fit:contain;"/>
+    Perjuma AgTech
+  </a>
+  <ul class="nav-links">
+    <li><a href="perjuma-about">About Us</a></li>
+    <li><a href="#" class="active">FarmSight</a></li>
+  </ul>
+  <div class="nav-btns">
+    <button class="btn-nav-workshop" onclick="location.href='perjuma-contact'">Get Started</button>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-nav" id="mobileMenu">
+    <a href="perjuma-about">About Us</a>
+    <a href="farmsight">FarmSight</a>
+    <div class="mobile-cta-wrap">
+      <a href="perjuma-contact" class="mobile-btn-primary">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════ PRODUCT HERO ═══════════════ -->
+<section class="product-hero">
+  <video class="hero-video" autoplay muted loop playsinline
+    poster="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1400&q=80">
+    <source src="https://videos.pexels.com/video-files/3266800/3266800-hd_1920_1080_30fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <p class="product-hero-eyebrow">Perjuma AgTech Product</p>
+  <h1>FarmSight: The Complete Farm Management Ecosystem</h1>
+  <p>FarmSight combines four powerful technologies — satellite monitoring, IoT soil sensors, drone surveys, and AI disease detection — into a single, easy-to-use platform that delivers clear advice straight to your phone.</p>
+  <div class="product-hero-btns">
+    <button class="btn-hero-gold" onclick="location.href='perjuma-contact'">Get Started</button>
+    <button class="btn-hero-outline" onclick="location.href='perjuma-enquiries'">Request a Demo</button>
+  </div>
+</section>
+
+<!-- ═══════════════ METRICS BAR ═══════════════ -->
+<div class="metrics-bar">
+  <div class="metric-item">
+    <span class="metric-num">30%</span>
+    <span class="metric-label">Average Yield Increase</span>
+  </div>
+  <div class="metric-item">
+    <span class="metric-num">25–30%</span>
+    <span class="metric-label">Input Cost Savings</span>
+  </div>
+  <div class="metric-item">
+    <span class="metric-num">95%</span>
+    <span class="metric-label">Disease Detection Accuracy</span>
+  </div>
+  <div class="metric-item">
+    <span class="metric-num">50%</span>
+    <span class="metric-label">Less Crop Loss</span>
+  </div>
+</div>
+
+<!-- ═══════════════ SERVICE ROWS ═══════════════ -->
+<section class="services-list">
+
+  <!-- 1. Business Operations — image LEFT, text RIGHT -->
+  <div class="service-row">
+    <div class="svc-img">
+      <img
+        src="images/mango-basket.png"
+        alt="Mango harvest — Perjuma AgTech"
+        onerror="this.parentElement.innerHTML='<div class=svc-img-placeholder>Image</div>'"
+      />
+    </div>
+    <div class="svc-text">
+      <h2>Continuous Satellite Monitoring</h2>
+      <div class="gold-tag">Higher Production</div>
+      <p>We use advanced satellite data to track your crops every five days. This allows us to see how your plants are growing across the entire farm and identify areas that need extra attention.</p>
+      <p class="approach-label">The Benefit</p>
+      <p>Boost your total harvest by up to 30% through better crop management.</p>
+    </div>
+  </div>
+
+  <!-- 2. Project & Program — text LEFT, image RIGHT -->
+  <div class="service-row img-right">
+    <div class="svc-img">
+      <img
+        src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80"
+        alt="Soil sensor monitoring in farmland"
+        onerror="this.parentElement.innerHTML='<div class=svc-img-placeholder>Image</div>'"
+      />
+    </div>
+    <div class="svc-text">
+      <h2>Smart Soil Sensors</h2>
+      <div class="gold-tag">Cost Savings</div>
+      <p>We place small, durable sensors in the ground to "listen" to your soil. They measure moisture, temperature, and vital nutrients (Nitrogen, Phosphorus, and Potassium) in real-time so you know exactly when to water or fertilize.</p>
+      <p class="approach-label">The Benefit</p>
+      <p>Reduce your spending on water, fertilizer, and pesticides by roughly 25-30% by using them more accurately.</p>
+    </div>
+  </div>
+
+  <!-- 3. Management & Outsourcing — text LEFT, image RIGHT -->
+  <div class="service-row img-right">
+    <div class="svc-img">
+      <img
+        src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=700&q=80"
+        alt="Agricultural drone surveying crops"
+        onerror="this.parentElement.innerHTML='<div class=svc-img-placeholder>Image</div>'"
+      />
+    </div>
+    <div class="svc-text">
+      <h2>Precision Drone Surveys</h2>
+      <div class="gold-tag">Premium Quality</div>
+      <p>For a closer look, we use drones equipped with special cameras to map your farm with centimeter-level detail. This helps us verify crop health and create precise "prescription maps" so you only apply chemicals where they are actually needed.</p>
+      <p class="approach-label">The Benefit</p>
+      <p>Increase the amount of top-grade, sellable produce you grow by over 60%.</p>
+    </div>
+  </div>
+
+  <!-- 4. Facilities Management — image LEFT, text RIGHT -->
+  <div class="service-row">
+    <div class="svc-img">
+      <img
+        src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=700&q=80"
+        alt="Farmer using AI technology to detect crop disease"
+        onerror="this.parentElement.innerHTML='<div class=svc-img-placeholder>Image</div>'"
+      />
+    </div>
+    <div class="svc-text">
+      <h2>AI Disease Detection</h2>
+      <div class="gold-tag">Reduced Loss</div>
+      <p>Our artificial intelligence has been trained on thousands of images of local crops to identify diseases with over 95% accuracy. It provides a 7 to 14-day early warning for common threats like fungal infections or viral wilts.</p>
+      <p class="approach-label">The Benefit</p>
+      <p>Cut down on crop loss by nearly 50% thanks to early warnings and faster intervention.</p>
+    </div>
+  </div>
+
+  
+</section>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<section class="cta-section">
+  <div>
+    <h2>Time to take action</h2>
+    <p>It is time to move beyond planning and turn your agricultural vision into reality. Whether you are looking to optimize your field operations with real-time data, launch a new precision farming initiative, or address urgent crop health challenges, now is the time to take decisive action. Our team is here to help you execute with technical precision, providing the satellite intelligence, IoT sensor networks, and AI-driven support you need to achieve your yield goals.</p>
+  </div>
+  <button class="btn-get-started" onclick="location.href='perjuma-contact'">Get Started</button>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a class="footer-logo" href="perjuma">
+        <img src="images/Perjuma.png" alt="Perjuma logo" style="width:28px;height:28px;object-fit:contain;"/>
+        Perjuma AgTech
+      </a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <hr/>
+      <ul>
+        <li><a href="perjuma">Home</a></li>
+        <li><a href="perjuma-about">About us</a></li>
+        <li><a href="farmsight">FarmSight</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <hr/>
+      <ul>
+        <li><a href="perjuma-terms" class="underline-link">Terms of Use</a></li>
+        <li><a href="perjuma-privacy" class="underline-link">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact us</h4>
+      <hr/>
+      <div class="contact-item">
+        <div class="ci-icon light">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.86 5.86l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="ci-info"><strong>+233 54 503 5410</strong></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon light">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="ci-info">
+          <strong>The Octagon</strong>
+          <span>Accra Central</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon dark">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="ci-info">
+          <strong>Email</strong>
+          <span>info@perjuma.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>

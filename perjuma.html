@@ -27,7 +27,6 @@
       background: var(--white);
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 14px 56px;
       position: sticky;
       top: 0;
@@ -35,6 +34,7 @@
       box-shadow: 0 1px 0 #e8e8e8;
     }
     .logo {
+      flex: 1;
       display: flex;
       align-items: center;
       gap: 9px;
@@ -50,6 +50,8 @@
       display: flex;
       gap: 44px;
       list-style: none;
+      flex: 1;
+      justify-content: center;
     }
     .nav-links a {
       text-decoration: none;
@@ -59,7 +61,7 @@
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--green); }
-    .nav-btns { display: flex; align-items: center; gap: 20px; }
+    .nav-btns { display: flex; align-items: center; gap: 20px; flex: 1; justify-content: flex-end; }
     .btn-nav-workshop {
       background: var(--gold);
       border: 2px solid var(--dark);
@@ -544,7 +546,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="perjuma-about">About Us</a></li>
-    <li><a href="perjuma-services">FarmSight</a></li>
+    <li><a href="farmsight">FarmSight</a></li>
   </ul>
   <div class="nav-btns">
     <button class="btn-nav-workshop" onclick="location.href='perjuma-contact'">Get Started</button>
@@ -554,7 +556,7 @@
   </button>
   <div class="mobile-nav" id="mobileMenu">
     <a href="perjuma-about">About Us</a>
-    <a href="perjuma-services">FarmSight</a>
+    <a href="farmsight">FarmSight</a>
     <div class="mobile-cta-wrap">
       <a href="perjuma-contact" class="mobile-btn-primary">Get Started</a>
     </div>
@@ -574,7 +576,7 @@
     <p class="hero-sub">Empowering agriculture through intelligent technology. We bridge the gap between traditional farming and modern innovation — turning complex data into simple, actionable advice.</p>
     <div class="hero-btns">
       <button class="btn-hero-primary" onclick="location.href='perjuma-contact'">Get Started</button>
-      <button class="btn-hero-secondary" onclick="location.href='perjuma-services'">Explore FarmSight</button>
+      <button class="btn-hero-secondary" onclick="location.href='farmsight'">Explore FarmSight</button>
     </div>
   </div>
 </section>
@@ -707,7 +709,7 @@
       <ul>
         <li><a href="perjuma" class="active-link">Home</a></li>
         <li><a href="perjuma-about">About us</a></li>
-        <li><a href="perjuma-services">FarmSight</a></li>
+        <li><a href="farmsight">FarmSight</a></li>
       </ul>
     </div>
 
