@@ -97,6 +97,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      text-align: center;
     }
     .hero-video {
       position: absolute;
@@ -131,16 +133,16 @@
       color: var(--white);
       line-height: 1.12;
       max-width: 720px;
-      margin-bottom: 22px;
+      margin: 0 auto 22px;
     }
     .product-hero p {
       color: rgba(255,255,255,0.78);
       font-size: 1.05rem;
       line-height: 1.75;
       max-width: 620px;
-      margin-bottom: 36px;
+      margin: 0 auto 36px;
     }
-    .product-hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .product-hero-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
     .btn-hero-gold {
       background: var(--gold);
       border: 2px solid var(--dark);
@@ -489,7 +491,7 @@
   <p>FarmSight combines four powerful technologies — satellite monitoring, IoT soil sensors, drone surveys, and AI disease detection — into a single, easy-to-use platform that delivers clear advice straight to your phone.</p>
   <div class="product-hero-btns">
     <button class="btn-hero-gold" onclick="location.href='perjuma-contact'">Get Started</button>
-    <button class="btn-hero-outline" onclick="location.href='perjuma-enquiries'">Request a Demo</button>
+    <button class="btn-hero-outline" onclick="location.href='perjuma-contact'">Request a Demo</button>
   </div>
 </section>
 
